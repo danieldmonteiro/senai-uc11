@@ -1,0 +1,24 @@
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Testecurso {
+	
+	private WebDriver driver;
+	
+	@Before
+	public void abrirNavegador() {
+		System.setProperty("webdriver.chrome.driver", "/Users/danielmonteiro/Chromedriver/chromedriver");
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+	}
+	@Test
+	public void testeNavegador() {
+		driver.get("https://sp.senai.br");
+		driver.findElement(By.className("open-search")).sendKeys("gestão");
+		driver.findElement(By.className("menu-transparent INDlangdirLTR INDpositionLeft INDDesktop INDChrome INDhasDragTooltip")).click();
+	}
+
+}
